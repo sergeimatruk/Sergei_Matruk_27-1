@@ -1,18 +1,14 @@
-from django.shortcuts import HttpResponse
-import datetime
+from django.shortcuts import render
+from posts.models import Product
 
-# Create your views here.
-
-def hello_view(request):
+def main_view(request):
     if request.method == 'GET':
-        return HttpResponse('Hello, its my project')
+        return render(request, 'layouts/index.html')
 
-def now_date(request):
+def products_view(request):
     if request.method == 'GET':
-        current_date = datetime.datetime.now()
-        return HttpResponse(f'Today is {current_date}')
-
-def goodbye_view(request):
-    if request.method == 'GET':
-        return HttpResponse('Goodbye, user')
-
+        products = Product.objects.all()
+        context = {
+            'products' : products
+        }
+        return render(request, 'products/products.html', context=context)
