@@ -1,0 +1,12 @@
+{% extends 'layouts/index.html' %}
+
+{% block content %}
+    <div class="post_block">
+        <div class="info">
+            <h1>{{ product.product_name }}</h1>
+            <h3>{{ product.product_description }}</h3>
+            <h4>Rate: {{ product.product_rate }}</h4>
+            <h5>{{ product.product_availability }}</h5>
+        </div>
+    </div>
+{% endblock %}

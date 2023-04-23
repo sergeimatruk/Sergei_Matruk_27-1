@@ -12,3 +12,13 @@ def products_view(request):
             'products' : products
         }
         return render(request, 'products/products.html', context=context)
+
+def product_detail_view (request):
+    if request.method == 'GET':
+        review = Product.objects.get(id=id)
+
+        context = {
+            'review': review
+        }
+
+    return render(request, 'products/detail.html', context=context)
