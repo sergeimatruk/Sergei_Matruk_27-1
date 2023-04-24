@@ -2,11 +2,18 @@
 
 {% block content %}
     <div class="post_block">
+        <img src="/media/{{ product.image }}" alt="">
         <div class="info">
             <h1>{{ product.product_name }}</h1>
             <h3>{{ product.product_description }}</h3>
             <h4>Rate: {{ product.product_rate }}</h4>
             <h5>{{ product.product_availability }}</h5>
+        </div>
+        <div class="comments">
+            {{% for comment in comments %}}
+                <div class="comments_block">
+                    <h5>{{ comment.text }}</h5>
+                </div>
         </div>
     </div>
 {% endblock %}
