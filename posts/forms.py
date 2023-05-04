@@ -10,3 +10,6 @@ class ProductCreateForm(forms.Form):
 class ReviewCreateForm(forms.Form):
     text = models.CharField(max_length=256)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
+
+class CommentCreateForm(forms.Form):
+    text = forms.CharField(min_length=2, max_length=256)
